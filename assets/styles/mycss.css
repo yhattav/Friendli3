@@ -1,0 +1,96 @@
+/*
+#progressBar {
+    width: 400px;
+    height: 22px;
+    border: 1px solid #111;
+    background-color: #292929;
+}
+#progressBar div {
+    height: 100%;
+    color: #fff;
+    text-align: right;
+    line-height: 22px; /* same as #progressBar height if we want text middle aligned 
+    width: 0;
+    background-color: #0f0;
+}
+
+.progress {
+  position: relative;
+  height: 31px;
+  background: rgb(255, 0, 0);
+  background: -moz-linear-gradient(left, rgba(255, 0, 0, 1) 0%, rgba(0, 255, 0, 1) 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 0, 0, 1)), color-stop(100%, rgba(0, 255, 0, 1)));
+  background: -webkit-linear-gradient(left, rgba(255, 0, 0, 1) 0%, rgba(0, 255, 0, 1) 100%);
+  background: -o-linear-gradient(left, rgba(255, 0, 0, 1) 0%, rgba(0, 255, 0, 1) 100%);
+  background: -ms-linear-gradient(left, rgba(255, 0, 0, 1) 0%, rgba(0, 255, 0, 1) 100%);
+  background: linear-gradient(to right, rgba(255, 0, 0, 1) 0%, rgba(0, 255, 0, 1) 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ff0000', endColorstr='#00ff00', GradientType=1);
+}
+.amount {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  transition: all 0.8s;
+  background: gray;
+  width: 0;
+}
+.progress:before {
+  content: attr(data-amount)"% Complete";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  text-align: center;
+  line-height: 31px;
+}
+*/
+
+/*.progress {
+    height: 300px;
+}
+.progress > svg {
+    height: 100%;
+    display: block;
+}*/
+#progress {
+  margin: 20px;
+  width: 200px;
+  height: 50px;
+  position: relative;
+  background-image: url('../images/progress_bar.gif');
+  
+}
+
+#container {
+  margin: 20px;
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+
+.OuterSingleBar {
+    position: relative;
+    padding: 30px;
+     
+}
+
+.progressbar-text {
+        
+    top: 50px !important;
+    
+    margin: -20px !important;
+}
+
+
+body {
+    background-image: url('../images/footer_lodyas.png');
+        background-repeat: repeat;
+    background-size:auto 100%; 
+    
+    box-sizing: border-box;
+    color: blue;
+    height:100%;
+}
