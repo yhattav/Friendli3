@@ -51,7 +51,7 @@ function makeProgressLine(id,percent) {
   },
   from: {color: '#00ff00'},
   to: {color: '#ED6A5A'},
-  step: (state, bar) => {
+  step: function (state, bar) {
       bar.path.setAttribute('stroke', state.color);
       bar.setText(Math.round(bar.value() * 100) + ' %' );
   }
