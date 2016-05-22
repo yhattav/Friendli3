@@ -11,7 +11,7 @@
     function calcProgress(aDate,aLatest,aDeathtime) {
         var timesince = aDate-aLatest;
         var a = timesince/aDeathtime;
-        if ( a>>1 ) { 
+        if ( a>1 ) { 
             return(1);
             }
             else return(a);
