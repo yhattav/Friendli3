@@ -1,0 +1,79 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+                <div class="bg-white">
+                    <form id="createFriend">
+                        <div class="form-group">
+                        <input id="Friend-deathtime" name="deathTime" type="hidden" class="form-control"
+                                value="90">
+                        <label for="Name-Input">Use this Box to create a new friend</label>
+                        <textarea name="name" id="friend-name" class="form-control" rows="2" required placeholder="Enter your friend's name"></textarea>
+
+                        <br/>
+                        <input id="Friend-latest" name="latest" type="date" class="form-control" >
+                        <div class="form-group">
+                            <div class="">
+                            <button type="submit" class="btn btn-success btn-block">Add New Friend!</button>
+                            </div>
+                        </div>
+                        </div>
+                    </form>
+
+                    </div>
+                </div>
+        </div>
+        
+        
+        
+        <div class="col-md-6">
+            MAINPAGER
+            <% for (i=1;i<2;i++) { %>
+            <div class="OuterSingleBar" style="position: relative; padding: 30px;">
+            <div class="progress" id='progress<%= i%>'></div>
+            </div>
+            <% } %>
+            <div class="container" id="container"></div>
+            
+            <div class="row bounceInUp">
+                <div class="col-md-6 col-md-offset-3 bg-white">
+
+                <ul class="list-group">
+                    <% for (var i = data.length - 1; i >= 0; i--) { %>
+                    <li class="list-group-item">
+                    <div class="media">
+                        <div class="media-left">
+                            <%= data[i].name %>
+                        </div>
+                        <div class="media-body">
+                        <h4 class="media-heading"><%= data[i].name %></h4>
+                        <p>
+                            
+                            <a href="#" class="deleteFriend" action="/friends/destroy/<%= data[i].id %>">
+                            <i class="fa fa-trash-o ">&nbsp;</i>delete</a>
+                            <span> · </span>
+                           
+                            <a href="#" class="updateFriend"
+                                    action="/friends/update/<%= data[i].id %>?update=<%= parseInt(data[i].latest || 0) + 1 %>">
+                            <i class="fa fa-arrow-up">&nbsp;</i>latest (<%= (data[i].latest || 0) %>)</a>
+                            <span> · </span>
+                           
+                            <a href="/friends/<%= data[i].id %>">
+                            <i class="fa fa-clock-o ">&nbsp;</i><%= new Date(data[i].updatedAt).toLocaleString() %></a>
+                        </p>
+                        <p><%= data[i].info %></p>
+                        </div>
+                    </div>
+                    </li>
+                    <% } %>
+                </ul>
+                </div>
+            </div>
+
+        </div>
+        
+        
+        <div class="col-md-3">
+            .col-md-4
+        </div>
+    </div>
+</div>

@@ -1,60 +1,4 @@
-/*
-#progressBar {
-    width: 400px;
-    height: 22px;
-    border: 1px solid #111;
-    background-color: #292929;
-}
-#progressBar div {
-    height: 100%;
-    color: #fff;
-    text-align: right;
-    line-height: 22px; /* same as #progressBar height if we want text middle aligned 
-    width: 0;
-    background-color: #0f0;
-}
 
-.progress {
-  position: relative;
-  height: 31px;
-  background: rgb(255, 0, 0);
-  background: -moz-linear-gradient(left, rgba(255, 0, 0, 1) 0%, rgba(0, 255, 0, 1) 100%);
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 0, 0, 1)), color-stop(100%, rgba(0, 255, 0, 1)));
-  background: -webkit-linear-gradient(left, rgba(255, 0, 0, 1) 0%, rgba(0, 255, 0, 1) 100%);
-  background: -o-linear-gradient(left, rgba(255, 0, 0, 1) 0%, rgba(0, 255, 0, 1) 100%);
-  background: -ms-linear-gradient(left, rgba(255, 0, 0, 1) 0%, rgba(0, 255, 0, 1) 100%);
-  background: linear-gradient(to right, rgba(255, 0, 0, 1) 0%, rgba(0, 255, 0, 1) 100%);
-  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ff0000', endColorstr='#00ff00', GradientType=1);
-}
-.amount {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  transition: all 0.8s;
-  background: gray;
-  width: 0;
-}
-.progress:before {
-  content: attr(data-amount)"% Complete";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-  text-align: center;
-  line-height: 31px;
-}
-*/
-
-/*.progress {
-    height: 300px;
-}
-.progress > svg {
-    height: 100%;
-    display: block;
-}*/
 #progress {
   margin: 20px;
   width: 200px;
@@ -93,4 +37,38 @@ body {
     box-sizing: border-box;
     color: blue;
     height:100%;
+}
+
+html,
+body,
+.container-fluid {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.bg-white {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 15px 0 rgba(0,0,0,0.1);
+}
+
+.blah-blah {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/bg.jpg');
+  background-size: 110%;
+  background-position: center;
+  opacity: 0.4;
+  z-index: -1;
+}
+
+.blabber-welcome {
+  margin-top: 100px;
+  background: rgba(255, 255, 255, 0.95);
 }

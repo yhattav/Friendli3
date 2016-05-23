@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="page-header">
+        <h1>One Thing</h1>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="/jThings">jThings</a></li>
+        <li class="active"><%= data.name %></li>
+    </ol>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form id="updateThing" action="/jThings/update/<%=data.id%>">
+                <div class="form-group" ac>
+                    <label for="nameInput">Name</label>
+                    <input name="name" type="text" class="form-control" id="nameInput" placeholder="name" value="<%=data.name%>">
+                </div>
+                <div class="form-group">
+                    <label>ID</label>
+                    <input name="id" type="text" class="form-control" value="<%=data.id%>" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Created At</label>
+                    <input name="createdAt" type="text" class="form-control" value="<%=data.createdAt%>" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Updated At</label>
+                    <input name="updatedAt" type="text" class="form-control" value="<%=data.updatedAt%>" disabled>
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+                <button id="deleteThing" action="/jThings/destroy/<%=data.id%>" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
