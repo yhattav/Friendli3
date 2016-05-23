@@ -28,7 +28,7 @@
     });
   });
 
-  $('.updateFriend').click(function (e) {
+  $('#updateFriend').submit(function (e) {
     e.preventDefault();
     $.ajax({
       url: $(this).attr('action'),

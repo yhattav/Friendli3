@@ -103,7 +103,7 @@ function makeProgressCircle(id,percent) {
 $(document).ready(function () { 
     var perc = calcProgress(date,latest,deathtime);
 
-    makeProgressCircle('container',perc);
+    //makeProgressCircle('container',perc);
     for (i=1;i<6;i++) {
     makeProgressLine('progress' + i,i*0.2); 
     }

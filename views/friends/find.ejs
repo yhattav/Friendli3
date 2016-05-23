@@ -32,7 +32,7 @@
             <div class="progress" id='progress<%= i%>'></div>
             </div>
             <% } %>
-            <div class="container" id="container"></div>
+         <!--   <div class="container" id="container"></div> -->
             
             <div class="row bounceInUp">
                 <div class="col-md-6 col-md-offset-3 bg-white">
@@ -51,9 +51,20 @@
                             <a href="#" class="deleteFriend" action="/friends/destroy/<%= data[i].id %>">
                             <i class="fa fa-trash-o ">&nbsp;</i>delete</a>
                             <span> · </span>
-                           
+                            
+                           <form id="updateFriend" action="/friends/update/<%= data[i].id %>?update=<%= parseInt(data[i].latest || 0)  %>">
+                                <div class="form-group">
+                                <input id="Friend-latest" name="latest" type="date" class="form-control" value="<%=data[i].latest %>">
+                                <div class="form-group">
+                                    <div class="">
+                                    <button type="submit" class="btn btn-success btn-block">Update the date you last called!</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </form>
+                            
                             <a href="#" class="updateFriend"
-                                    action="/friends/update/<%= data[i].id %>?update=<%= parseInt(data[i].latest || 0) + 1 %>">
+                                    action="/friends/update/<%= data[i].id %>?update=<%= parseInt(data[i].latest || 0) + 10000000 %>">
                             <i class="fa fa-arrow-up">&nbsp;</i>latest (<%= (data[i].latest || 0) %>)</a>
                             <span> · </span>
                            
