@@ -17,7 +17,12 @@
             else return(a);
     }
 
+var firstDate = Date.parse('2016-05-17');
+var secondDate = Date.today();
 
+ console.log(firstDate + " hehehehehehehehe");
+ console.log(secondDate + "lalalalalala");
+ console.log((secondDate - firstDate)/3600/24/1000);
 
 
 

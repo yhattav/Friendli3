@@ -40,7 +40,22 @@
     });
   }); 
 // });
+var Data2;
 
+// $(document).ready(function (e) {
+//    e.preventDefault();
+    $.ajax({ 
+      url: '/friends',
+      type: 'get',
+      data: Data2,
+      success: function () {
+        console.log('Data2');
+      }
+    });
+console.log('this ajax worked?');
+//  }); 
+  
+  
 function md5(text) {
 
 }
