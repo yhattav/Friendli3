@@ -1,3 +1,10 @@
+
+
+//$(document).ready(function(){
+      
+
+//});
+
 // CREATING THE VARIABLES THAT WILL LATER BE CALLED FROM THE DB, MEANWHILE ARE STATIC
     var name = 'Yonatan' ;
     var date = 95;
@@ -8,22 +15,22 @@
 
 
 // CALCULATING THE PROGRESS
-    function calcProgress(aDate,aLatest,aDeathtime) {
-        var timesince = aDate-aLatest;
-        var a = timesince/aDeathtime;
+    function calcProgress(timeSince,aDeathTime) {
+        
+        var a = timeSince/aDeathTime;
         if ( a>1 ) { 
             return(1);
             }
             else return(a);
     }
-
-var firstDate = Date.parse('2016-05-17');
-var secondDate = Date.today();
-
- console.log(firstDate + " hehehehehehehehe");
- console.log(secondDate + "lalalalalala");
- console.log((secondDate - firstDate)/3600/24/1000);
-
+    
+    function calcDaysPast(first){
+        var firstDate = Date.parse(first);
+        var secondDate = Date.today();
+        var dayz = ((secondDate - firstDate)/3600/24/1000);
+        return(dayz);
+        
+    }
 
 
 
@@ -106,12 +113,31 @@ function makeProgressCircle(id,percent) {
 
 //DOCUMENT READY - Calling the functions
 $(document).ready(function () { 
+    
+    $.ajax({
+            url:"/friends",
+            type: 'GET',
+            dataType: 'json',
+            success:function(data) {
+                for (var f = data.length - 1; f >= 0; f--) {
+                    console.log("working on number: " + f);
+                    var pastDays = calcDaysPast(data[f].latest);
+                    console.log("past days for:"+ f + " are: " + pastDays + " and deathtime is: " + data[f].deathTime);
+                    var prog = calcProgress(pastDays,data[f].deathTime)
+                    console.log("progress for:"+ f + " is: " + prog);
+                    makeProgressLine('progress' + f,prog);
+            }
+                
+    }
+    });
+
+    console.log("this is the name:" + window.myData);
     var perc = calcProgress(date,latest,deathtime);
 
     //makeProgressCircle('container',perc);
-    for (i=1;i<6;i++) {
-    makeProgressLine('progress' + i,i*0.2); 
-    }
+  //  for (i=1;i<6;i++) {
+   // makeProgressLine('progress' + i,i*0.2); 
+   // }
 
 
 });

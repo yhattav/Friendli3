@@ -27,11 +27,11 @@
         
         <div class="col-md-6">
             MAINPAGER
-            <% for (i=1;i<2;i++) { %>
+  <!--          <% for (i=1;i<2;i++) { %>
             <div class="OuterSingleBar" style="position: relative; padding: 30px;">
             <div class="progress" id='progress<%= i%>'></div>
             </div>
-            <% } %>
+            <% } %> -->
          <!--   <div class="container" id="container"></div> -->
             
             <div class="row bounceInUp">
@@ -51,6 +51,10 @@
                             <a href="#" class="deleteFriend" action="/friends/destroy/<%= data[i].id %>">
                             <i class="fa fa-trash-o ">&nbsp;</i>delete</a>
                             <span> · </span>
+<!-- the progress bars -->                            
+                            <div class="OuterSingleBar" style="position: relative; padding: 30px;">
+                                <div class="progress" id='progress<%= i%>'></div>
+                            </div>
                             
                            <form id="updateFriend" action="/friends/update/<%= data[i].id %>?update=<%= parseInt(data[i].latest || 0)  %>">
                                 <div class="form-group">
@@ -64,7 +68,7 @@
                             </form>
                             
                             <a href="#" class="updateFriend"
-                                    action="/friends/update/<%= data[i].id %>?update=<%= parseInt(data[i].latest || 0) + 10000000 %>">
+                                    action="/friends/update/<%= data[i].id %>?update=<%= parseInt(data[i].latest || 0)  %>">
                             <i class="fa fa-arrow-up">&nbsp;</i>latest (<%= (data[i].latest || 0) %>)</a>
                             <span> · </span>
                            

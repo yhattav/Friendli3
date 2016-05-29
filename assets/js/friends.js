@@ -32,6 +32,7 @@
     e.preventDefault();
     $.ajax({
       url: $(this).attr('action'),
+      //url: '/friends/update',
       type: 'put',
       data: $(this).serialize(),
       success: function () {
