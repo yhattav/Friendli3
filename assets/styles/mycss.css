@@ -16,16 +16,17 @@
 }
 
 .OuterSingleBar {
-    position: relative;
-    padding: 30px;
+    
      
 }
 
 .progressbar-text {
         
-    top: 50px !important;
+    top: 60px !important;
     
-    margin: -20px !important;
+    margin: 5px !important;
+    
+    position: absolute;
 }
 
 
