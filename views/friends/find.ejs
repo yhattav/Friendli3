@@ -1,93 +1,85 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3">
-                <div class="bg-white">
-                    <form id="createFriend">
-                        <div class="form-group">
-                        <input id="Friend-deathtime" name="deathTime" type="hidden" class="form-control"
-                                value="90">
+            asdasdasdasdasdasd
+            <div class="bg-white">
+                <form  id="createFriend">
+                    <div class="form-group">
+                        <input id="Friend-deathtime" name="deathTime" type="hidden" class="form-control" value="90">
                         <label for="Name-Input">Use this Box to create a new friend</label>
-                        <textarea name="name" id="friend-name" class="form-control" rows="2" required placeholder="Enter your friend's name"></textarea>
-
-                        <br/>
+                        <textarea name="name" id="friend-name" class="form-control" rows="1" required placeholder="Enter your friend's name"></textarea>
+                        <label for="Date-Input">When did you last talk to him?</label>
                         <input id="Friend-latest" name="latest" type="date" class="form-control" >
+                        <label for="Name-Input">What can you tell us about him?</label>
+                        <textarea name="info" id="friend-info" class="form-control" rows="2" placeholder="e.g. His wife's name is Ellie, His Dog's name is Rex"></textarea>
                         <div class="form-group">
                             <div class="">
                             <button type="submit" class="btn btn-success btn-block">Add New Friend!</button>
                             </div>
                         </div>
-                        </div>
-                    </form>
-
-                    </div>
-                </div>
-        </div>
+                     </div>
+                </form>
+              </div>
+          </div>
         
         
         
-        <div class="col-md-6">
+        
+        <div class="col-md-8">
             MAINPAGER
-  <!--          <% for (i=1;i<2;i++) { %>
-            <div class="OuterSingleBar" style="position: relative; padding: 30px;">
-            <div class="progress" id='progress<%= i%>'></div>
-            </div>
-            <% } %> -->
-         <!--   <div class="container" id="container"></div> -->
-            
             <div class="row bounceInUp">
-                <div class="col-md-6 col-md-offset-3 bg-white">
-
-                <ul class="list-group">
+                <div class="col-md-11 col-md-offset-0 bg-white">
+                    <ul class="list-group">
                     <% for (var i = data.length - 1; i >= 0; i--) { %>
-                    <li class="list-group-item">
+                    <li class="list-group-item animated bounceInUp">
                     <div class="media">
-                        <div class="media-left">
-                            <%= data[i].name %>
-                        </div>
+
                         <div class="media-body">
-                        <h4 class="media-heading"><%= data[i].name %></h4>
-                        <p>
-                            
-                            <a href="#" class="deleteFriend" action="/friends/destroy/<%= data[i].id %>">
-                            <i class="fa fa-trash-o ">&nbsp;</i>delete</a>
-                            <span> · </span>
-<!-- the progress bars -->                            
-                            <div class="OuterSingleBar" style="position: relative; padding: 30px;">
-                                <div class="progress" id='progress<%= i%>'></div>
-                            </div>
-                            
-                           <form id="updateFriend" action="/friends/update/<%= data[i].id %>?update=<%= parseInt(data[i].latest || 0)  %>">
-                                <div class="form-group">
-                                <input id="Friend-latest" name="latest" type="date" class="form-control" value="<%=data[i].latest %>">
-                                <div class="form-group">
-                                    <div class="">
-                                    <button type="submit" class="btn btn-success btn-block">Update the date you last called!</button>
+                            <h4 class="media-heading"><%= data[i].name %></h4>
+                            <p>
+                                
+                                <a href="#" class="deleteFriend" action="/friends/destroy/<%= data[i].id %>">
+                                <i class="fa fa-trash-o ">&nbsp;</i>delete</a>
+                                <span> · </span>
+                                <!-- the progress bars -->   
+                                <div style=" padding-right: 30px;">                         
+                                    <div class="OuterSingleBar" style="position: relative; padding-right: 30px;">
+                                        <div class="progress" id='progress<%= i%>'></div>
                                     </div>
                                 </div>
-                                </div>
-                            </form>
+                                
+                            <form id="updateFriend" action="/friends/update/<%= data[i].id %>?update=<%= parseInt(data[i].latest || 0)  %>">
+                                    <div class="form-group">
+                                    <input id="Friend-latest" name="latest" type="date" class="form-control" value="<%=data[i].latest %>">
+                                    <div class="form-group">
+                                        <div class="">
+                                        <button type="submit" class="btn btn-success btn-block">Update the date you last called!</button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </form>
+                                
+                                <a href="#" class="updateFriend"
+                                        action="/friends/update/<%= data[i].id %>?update=<%= parseInt(data[i].latest || 0)  %>">
+                                <i class="fa fa-arrow-up">&nbsp;</i>latest (<%= (data[i].latest || 0) %>)</a>
+                                <span> · </span>
                             
-                            <a href="#" class="updateFriend"
-                                    action="/friends/update/<%= data[i].id %>?update=<%= parseInt(data[i].latest || 0)  %>">
-                            <i class="fa fa-arrow-up">&nbsp;</i>latest (<%= (data[i].latest || 0) %>)</a>
-                            <span> · </span>
-                           
-                            <a href="/friends/<%= data[i].id %>">
-                            <i class="fa fa-clock-o ">&nbsp;</i><%= new Date(data[i].updatedAt).toLocaleString() %></a>
-                        </p>
-                        <p><%= data[i].info %></p>
+                                <a href="/friends/<%= data[i].id %>">
+                                <i class="fa fa-clock-o ">&nbsp;</i><%= new Date(data[i].updatedAt).toLocaleString() %></a>
+                            </p>
+                            <p><%= data[i].info %></p>
                         </div>
                     </div>
                     </li>
                     <% } %>
-                </ul>
+                    </ul>
                 </div>
             </div>
 
         </div>
         
         
-        <div class="col-md-3">
+        <div class="col-md-1">
             .col-md-4
         </div>
     </div>

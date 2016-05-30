@@ -1,17 +1,13 @@
+// myscript is the main script running in the site. created by yhattav@gmail.com. 
 
-
-//$(document).ready(function(){
-      
-
-//});
 
 // CREATING THE VARIABLES THAT WILL LATER BE CALLED FROM THE DB, MEANWHILE ARE STATIC
-    var name = 'Yonatan' ;
-    var date = 95;
-    var updated = 66;
-    var latest = 66;
-    var deathtime = 90;
-   // var perc = 0.55;
+ //   var name = 'Yonatan' ;
+ //   var date = 95;
+ //   var updated = 66;
+ //   var latest = 66;
+ //   var deathtime = 90;
+ //   var perc = 0.55;
 
 
 // CALCULATING THE PROGRESS
@@ -70,8 +66,8 @@ function makeProgressLine(id,percent) {
     });
 
     bar.animate(percent);
-    var stringname = '<div class="big">' + name + '</div>';
-    $(itemz).after(stringname);
+ //   var stringname = '<div class="big">' + name + '</div>';
+ //   $(itemz).after(stringname);
 }   
 
 function makeProgressCircle(id,percent) {     
