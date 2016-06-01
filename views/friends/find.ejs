@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3">
-            asdasdasdasdasdasd
+            </br>
             <div class="bg-white">
                 <form  id="createFriend">
                     <div class="form-group">
@@ -26,12 +26,13 @@
         
         
         <div class="col-md-8">
-            MAINPAGER
+            
             <div class="row bounceInUp">
-                <div class="col-md-11 col-md-offset-0 bg-white">
+                </br>
+                <div class="col-md-11 col-md-offset-0 ">
                     <ul class="list-group">
                     <% for (var i = data.length - 1; i >= 0; i--) { %>
-                    <li class="list-group-item animated bounceInUp">
+                    <li class="list-group-item animated bounceInUp bg-white">
                     <div class="media">
 
                         <div class="media-body">
@@ -54,30 +55,36 @@
                                 <span> · </span>
                                                                 <a href="#" class="updateFriend"
                                         action="/friends/update/<%= data[i].id %>?update=<%= parseInt(data[i].latest || 0)  %>">
-                                <i class="fa fa-arrow-up">&nbsp;</i>latest (<%= (data[i].latest || 0) %>)</a>
+                                <i class="fa fa-calendar-check-o">&nbsp;</i>latest (<%= (data[i].latest || 0) %>)</a>
                                 <span> · </span>
                             
                                 <a href="/friends/<%= data[i].id %>">
                                 <i class="fa fa-clock-o ">&nbsp;</i><%= new Date(data[i].updatedAt).toLocaleString() %></a>
                             </p>
-                                
-                            <form id="updateFriend" class="updateFriend" action="/friends/update/<%= data[i].id %>?update=<%= parseInt(data[i].latest || 0)  %>">
-                                    <div class="form-group">
-                                    <input id="Friend-latest" name="latest" type="date" class="form-control" value="<%=data[i].latest %>">
-                                    <div class="form-group">
-                                        <div class="">
-                                        <button type="submit" class="btn btn-success btn-block">Update the date you last called!</button>
+                            <div class="row">
+                                 <div class="col-lg-4">    
+                                    <form id="updateFriend" class="updateFriend" action="/friends/update/<%= data[i].id %>?update=<%= parseInt(data[i].latest || 0)  %>">
+                                        <div class="input-group">
+                                        <input id="Friend-latest" name="latest" type="date" class="form-control" value="<%=data[i].latest %>">
+                                        <span class="input-group-btn">
+                                        
+                                            <button type="submit" class="btn btn-success " >Update!</button>
+                                        
+                                        </span>
                                         </div>
-                                    </div>
-                                    </div>
-                                </form>
-                                
+                                    </form>
+                                </div><!-- /.col-lg-4 -->
+                                <div class="col-lg-1">
+                                    
+                                </div><!-- /.col-lg-1 -->
+                                <div class="col-lg-7">
+                                    <p><%= data[i].info %></p>
+                                </div><!-- /.col-lg-7 -->
 
-                            
-                            <p><%= data[i].info %></p>
                         </div>
                     </div>
                     </li>
+                    </br>
                     <% } %>
                     </ul>
                 </div>
