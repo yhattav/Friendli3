@@ -110,6 +110,8 @@ function makeProgressCircle(id,percent) {
 //DOCUMENT READY - Calling the functions
 $(document).ready(function () { 
     
+    $(".external").hide();
+    
     $.ajax({
             url:"/friends",
             type: 'GET',
@@ -127,9 +129,11 @@ $(document).ready(function () {
     }
     });
 
-    console.log("this is the name:" + window.myData);
-    var perc = calcProgress(date,latest,deathtime);
-
+    $(".btnToggle").click(function(){
+       $(this).siblings(".external").toggle("slow");
+       $(this).children(".toggler").toggleClass("fa-arrow-down").toggleClass("fa-arrow-up");
+       
+    });
     //makeProgressCircle('container',perc);
   //  for (i=1;i<6;i++) {
    // makeProgressLine('progress' + i,i*0.2); 
