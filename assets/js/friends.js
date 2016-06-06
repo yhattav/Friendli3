@@ -16,7 +16,7 @@
     });
   });
 
-  $('.deleteFriend').click(function (e) {
+  $('.deleteFriend').submit(function (e) {
     e.preventDefault();
     $.ajax({
       url: $(this).attr('action'),

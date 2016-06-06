@@ -23,7 +23,7 @@
                     </form>
                 </div>
               </div>
-          </div>
+        </div>
         
         
         
@@ -52,11 +52,22 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="external">
+                            <div class="external">
+                                <div class="btn-group" role="group" aria-label="wooooot">
+                                     <form id="deleteFriend" class="deleteFriend" action="/friends/destroy/<%= data[i].id %>">
+                                        <button type="button" class="btn btn-danger btnToggle checkDelete">Delete</button>
+                                    
+                                   
+                                    <!--    <a href="#" class="deleteFriend external" action="/friends/destroy/<%= data[i].id %>">
+                                        <i class="fa fa-trash-o ">&nbsp;</i>delete</a>-->
+                                 <!--       -->
+
+                                                <button type="submit" class="btn btn-danger external" > <i class="fa fa-trash-o "></i></button>
+
+                                        </form>
+                                </div>
                                 
-                                <a href="#" class="deleteFriend" action="/friends/destroy/<%= data[i].id %>">
-                                <i class="fa fa-trash-o ">&nbsp;</i>delete</a>
-                                <span> · </span>
+                                </br>
                                                                 <a href="#" class="updateFriend"
                                         action="/friends/update/<%= data[i].id %>?update=<%= parseInt(data[i].latest || 0)  %>">
                                 <i class="fa fa-calendar-check-o">&nbsp;</i>latest (<%= (data[i].latest || 0) %>)</a>
@@ -64,7 +75,7 @@
                             
                                 <a href="/friends/<%= data[i].id %>">
                                 <i class="fa fa-clock-o ">&nbsp;</i><%= new Date(data[i].updatedAt).toLocaleString() %></a>
-                            </p>
+                            </div>
                             <div class="row external">
                                  <div class="col-lg-4">    
                                     <form id="updateFriend" class="updateFriend" action="/friends/update/<%= data[i].id %>?update=<%= parseInt(data[i].latest || 0)  %>">
@@ -95,10 +106,7 @@
             </div>
 
         </div>
-        
-        
-        <div class="col-md-1">
-            
+        <div class="col-md-1">    
         </div>
     </div>
 </div>

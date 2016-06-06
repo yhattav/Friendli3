@@ -134,6 +134,11 @@ $(document).ready(function () {
        $(this).children(".toggler").toggleClass("fa-arrow-down").toggleClass("fa-arrow-up");
        
     });
+    $(".checkDelete").click(function() {
+ //       toggle($(this).text('Delete????'));
+  //  }, function() {
+        $(this).html($(this).text() == 'Delete' ? 'Are you sure?  click again to cancel' : 'Delete').toggleClass("btn-danger").toggleClass("btn-success");
+    });
     //makeProgressCircle('container',perc);
   //  for (i=1;i<6;i++) {
    // makeProgressLine('progress' + i,i*0.2); 
