@@ -7,13 +7,15 @@
                 <div class="external">
                     <form  id="createFriend">
                         <div class="form-group">
-                            <input id="Friend-deathtime" name="deathTime" type="hidden" class="form-control" value="90">
+
                             <label for="Name-Input">Use this Box to create a new friend</label>
                             <textarea name="name" id="friend-name" class="form-control" rows="1" required placeholder="Enter your friend's name"></textarea>
                             <label for="Date-Input">When did you last talk to him?</label>
                             <input id="Friend-latest" name="latest" type="date" class="form-control" >
                             <label for="Name-Input">What can you tell us about him?</label>
                             <textarea name="info" id="friend-info" class="form-control" rows="2" placeholder="e.g. His wife's name is Ellie, His Dog's name is Rex"></textarea>
+                            <label for="Name-Input">How many days untill you must call?</label>
+                            <input id="Friend-deathtime" name="deathTime" type="number" class="form-control" value="90">
                             <div class="form-group">
                                 <div class="">
                                 <button type="submit" class="btn btn-success btn-block">Add New Friend!</button>
@@ -56,46 +58,41 @@
                                 <div class="btn-group" role="group" aria-label="wooooot">
                                      <form id="deleteFriend" class="deleteFriend" action="/friends/destroy/<%= data[i].id %>">
                                         <button type="button" class="btn btn-danger btnToggle checkDelete">Delete</button>
-                                    
-                                   
-                                    <!--    <a href="#" class="deleteFriend external" action="/friends/destroy/<%= data[i].id %>">
-                                        <i class="fa fa-trash-o ">&nbsp;</i>delete</a>-->
-                                 <!--       -->
 
                                                 <button type="submit" class="btn btn-danger external" > <i class="fa fa-trash-o "></i></button>
 
                                         </form>
                                 </div>
-                                
                                 </br>
-                                                                <a href="#" class="updateFriend"
-                                        action="/friends/update/<%= data[i].id %>?update=<%= parseInt(data[i].latest || 0)  %>">
-                                <i class="fa fa-calendar-check-o">&nbsp;</i>latest (<%= (data[i].latest || 0) %>)</a>
                                 <span> · </span>
                             
-                                <a href="/friends/<%= data[i].id %>">
-                                <i class="fa fa-clock-o ">&nbsp;</i><%= new Date(data[i].updatedAt).toLocaleString() %></a>
+
                             </div>
                             <div class="row external">
-                                 <div class="col-lg-4">    
-                                    <form id="updateFriend" class="updateFriend" action="/friends/update/<%= data[i].id %>?update=<%= parseInt(data[i].latest || 0)  %>">
-                                        <div class="input-group">
-                                        <input id="Friend-latest" name="latest" type="date" class="form-control" value="<%=data[i].latest %>">
-                                        <span class="input-group-btn">
+                                <form id="updateFriend" class="updateFriend" action="/friends/update/<%= data[i].id %>?update=<%= parseInt(data[i].latest || 0)  %>?update=<%= parseInt(data[i].deathTime || 0)  %>">
+                                    <div class="col-lg-4">    
                                         
-                                            <button type="submit" class="btn btn-success " >Update!</button>
+                                            <label for="latest-Update">Update the date you last called:</label>
+                                            <input id="Update-latest" name="latest" type="date" class="form-control" value="<%=data[i].latest %>">
+                                            <label for="deathTime-Update">Change call timer:</label>
+                                            <input id="Update-deathTime" name="deathTime" type="number" class="form-control" value="<%=data[i].deathTime %>">
+                                            <label for="UpdatedAT">Last updated at:</label></br>
+                                            <a href="/friends/<%= data[i].id %>"><i class="fa fa-clock-o ">&nbsp;</i><%= new Date(data[i].updatedAt).toLocaleString() %></a>
+                                            
+                                            
+                                            
                                         
-                                        </span>
-                                        </div>
-                                    </form>
-                                </div><!-- /.col-lg-4 -->
-                                <div class="col-lg-1">
-                                    
-                                </div><!-- /.col-lg-1 -->
-                                <div class="col-lg-7">
-                                    <p><%= data[i].info %></p>
-                                </div><!-- /.col-lg-7 -->
-
+                                    </div><!-- /.col-lg-4 -->
+                                    <div class="col-lg-7">
+                                        <label for="info-Update">Read and update your contact info:</label>
+                                        <textarea id="Update-info" name="info" type="text" class="form-control" rows="4" ><%=data[i].info %></textarea> </br>
+                                        <button type="submit" class="btn btn-success btn-block" >Update!</button>    
+                                        
+                                    </div><!-- /.col-lg-1 -->
+                                    <div class="col-lg-1">
+                                        
+                                    </div><!-- /.col-lg-7 -->
+                                </form>
                         </div>
                     </div>
                     </li>

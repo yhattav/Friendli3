@@ -137,7 +137,7 @@ $(document).ready(function () {
     $(".checkDelete").click(function() {
  //       toggle($(this).text('Delete????'));
   //  }, function() {
-        $(this).html($(this).text() == 'Delete' ? 'Are you sure?  click again to cancel' : 'Delete').toggleClass("btn-danger").toggleClass("btn-success");
+        $(this).html($(this).text() == 'Delete' ? 'Are you sure?  Click again to cancel' : 'Delete').toggleClass("btn-danger").toggleClass("btn-success");
     });
     //makeProgressCircle('container',perc);
   //  for (i=1;i<6;i++) {
