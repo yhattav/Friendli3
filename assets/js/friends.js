@@ -4,7 +4,7 @@
     document.location.href = '/';
   }*/
 
-  $('#createFriend').submit(function (e) {
+  $('.createFriend').submit(function (e) {
     e.preventDefault();
     $.ajax({
       url: '/friends/create',

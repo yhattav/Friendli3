@@ -5,9 +5,9 @@
             <div class="bg-white">
                 <button class="btn btn-info btnToggle btn-block"><i class="fa fa-arrow-down toggler">&nbsp;</i> Create a new Friend! <i class="fa fa-arrow-down toggler">&nbsp;</i></button>
                 <div class="external">
-                    <form  id="createFriend">
+                    <form  class="createFriend">
                         <div class="form-group">
-
+                            <input id="Friend-type" name="type" type="hidden" class="form-control" value="friend">
                             <label for="Name-Input">Use this Box to create a new friend</label>
                             <textarea name="name" id="friend-name" class="form-control" rows="1" required placeholder="Enter your friend's name"></textarea>
                             <label for="Date-Input">When did you last talk to him?</label>
@@ -26,11 +26,7 @@
                 </div>
               </div>
         </div>
-        
-        
-        
-        
-        <div class="col-md-8">
+        <div class="col-md-7">
             
             <div class="row ">
                 </br>
@@ -103,7 +99,27 @@
             </div>
 
         </div>
-        <div class="col-md-1">    
+        <div class="col-md-2"> 
+            </br>
+            <div class="bg-white">
+                <button class="btn btn-info btnToggle btn-block"><i class="fa fa-arrow-down toggler">&nbsp;</i> Create a new Category! <i class="fa fa-arrow-down toggler">&nbsp;</i></button>
+                <div class="external">
+                    <form  class="createFriend">
+                        <div class="form-group">
+                            <input id="Group-type" name="type" type="hidden" class="form-control" value="group">
+                            <label for="Name-Input">Use this Box to create a new Group</label>
+                            <textarea name="name" id="group-name" class="form-control" rows="1" required placeholder="Enter your friend's name"></textarea>
+                            <label for="Name-Input">How many days untill you must call?</label>
+                            <input id="Group-deathtime" name="deathTime" type="number" class="form-control" value="90">
+                            <div class="form-group">
+                                <div class="">
+                                <button type="submit" class="btn btn-success btn-block">Add the New Group!</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+              </div>   
         </div>
     </div>
 </div>
