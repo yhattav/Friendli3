@@ -163,11 +163,7 @@ $(document).ready(function () {
    var trialvar = $('input[name=group]:checked', '#friendCreationForm').val();
    
    
-  $('#Friend-group').val(trialvar);
 
-$('#friendCreationForm input').on('change', function() {
-   alert($('input[name=deathTime]:checked', '#friendCreationForm').text()); 
-});
 
 });
 
@@ -175,7 +171,6 @@ $('.groupSelect').click(function(){
     $(this).toggleClass("btn-success").toggleClass("btn-info");
     var a = $(this).val();
     var classa = '.group' + a;
-    alert(classa);
     $(classa).toggle("slow");
 
 });

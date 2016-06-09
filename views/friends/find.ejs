@@ -22,8 +22,8 @@
                                 <input type="radio" name="group" value="<%=data[j].id%>" checked><%=data[j].name %><br>
                                 
            
-        <% } %>
-        <% } %>
+                            <% } %>
+                            <% } %>
                                 
                             <div class="form-group">
                                 <div class="">
@@ -90,11 +90,15 @@
                                         
                                             <label for="latest-Update">Update the date you last called:</label>
                                             <input id="Update-latest" name="latest" type="date" class="form-control" value="<%=data[i].latest %>">
-                                            <label for="deathTime-Update">Change call timer:</label>
-                                            <input id="Update-deathTime" name="deathTime" type="number" class="form-control" value="<%=data[i].deathTime %>">
                                             <label for="UpdatedAT">Last updated at:</label></br>
                                             <a href="/friends/<%= data[i].id %>"><i class="fa fa-clock-o ">&nbsp;</i><%= new Date(data[i].updatedAt).toLocaleString() %></a></br>
-                                            <p><%=data[(i + (data[i].group - data[i].id))].name %></p>
+                                            <p>
+                                                <%for (var g = data.length - 1; g >= 0; g--) { %>
+                                                <% if (data[g].id == data[i].group) { %>
+                                                <%=data[g].name%>
+                                                <% } %>
+                                              <% } %>
+                                            </p>
                                             
                                             
                                             
