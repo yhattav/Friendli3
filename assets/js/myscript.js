@@ -118,6 +118,7 @@ $(document).ready(function () {
             dataType: 'json',
             success:function(data) {
                 for (var f = data.length - 1; f >= 0; f--) {
+                    if (data[f].typeFriend == 1) {
                     console.log("working on number: " + f);
                     var pastDays = calcDaysPast(data[f].latest);
                    var groupish = 0; 
@@ -140,6 +141,7 @@ $(document).ready(function () {
                     makeProgressLine('progress' + f,prog);
                     
             }
+                }
                 
     }
     });
@@ -169,6 +171,31 @@ $('#friendCreationForm input').on('change', function() {
 
 });
 
+$('.groupSelect').click(function(){
+    $(this).toggleClass("btn-success").toggleClass("btn-info");
+    var a = $(this).val();
+    var classa = '.group' + a;
+    alert(classa);
+    $(classa).toggle("slow");
 
+});
+$('#showAllGroups').click(function(){
+    
+   if ( $(this).val() == 1) {
+      $(this).removeClass("btn-success").addClass("btn-info");
+      $(".groupSelect").addClass("btn-info").removeClass("btn-success");
+      $('.oneFriendLine').hide("slow");
+      $(this).val("0");
+   } 
+   else
+   {
+      $(this).removeClass("btn-info").addClass("btn-success");
+      $(".groupSelect").addClass("btn-success").removeClass("btn-info");
+      $('.oneFriendLine').show("slow");
+      $(this).val("1");  
+   }
+   
+    
+})
 
 //window.onload = function shagadelic() {

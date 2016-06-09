@@ -38,11 +38,22 @@
         <div class="col-md-6">
             
             <div class="row ">
-                </br>
-                <div class="col-md-11 col-md-offset-0 ">
-                    <ul class="list-group bounceInUp">
+                
+                <div class="btn-group" role="group" aria-label="...">
+                    <button id="showAllGroups" type="button" class="btn btn-success" value="1">Sellect all</button>
                     <% for (var i = data.length - 1; i >= 0; i--) { %>
-                    <li class="list-group-item animated bounceInUp bg-white">
+                    <% if (data[i].typeGroup == 1) { %>
+                    <button type="button" class="btn groupSelect btn-success" value="<%=data[i].id%>"><%=data[i].name%></button>
+
+                    <% } %>
+                    <% } %>
+                </div>
+                
+                <div class="col-md-11 col-md-offset-0 ">
+                    <ul class="friendList list-group bounceInUp">
+                    <% for (var i = data.length - 1; i >= 0; i--) { %>
+                    <% if (data[i].typeFriend == 1) { %>
+                    <li class="oneFriendLine list-group-item animated bounceInUp bg-white group<%=data[i].group%>">
                     <div class="media">
                         <div class="media-body">
                            
@@ -83,7 +94,7 @@
                                             <input id="Update-deathTime" name="deathTime" type="number" class="form-control" value="<%=data[i].deathTime %>">
                                             <label for="UpdatedAT">Last updated at:</label></br>
                                             <a href="/friends/<%= data[i].id %>"><i class="fa fa-clock-o ">&nbsp;</i><%= new Date(data[i].updatedAt).toLocaleString() %></a></br>
-                                            <%=data[i].group %>
+                                            <p><%=data[(i + (data[i].group - data[i].id))].name %></p>
                                             
                                             
                                             
@@ -104,6 +115,7 @@
                     </li>
                     </br>
                     <% } %>
+                    <% } %>
                     </ul>
                 </div>
             </div>
@@ -112,7 +124,7 @@
         <div class="col-md-3"> 
             </br>
             <div class="bg-white">
-                <button class="btn btn-info btnToggle btn-block"><i class="fa fa-arrow-down toggler">&nbsp;</i> Create a new Category! <i class="fa fa-arrow-down toggler">&nbsp;</i></button>
+                <button class="btn btn-info btnToggle btn-block"><i class="fa fa-arrow-down toggler">&nbsp;</i> Create a new group! <i class="fa fa-arrow-down toggler">&nbsp;</i></button>
                 <div class="external">
                     <form  class="createFriend">
                         <div class="form-group">
