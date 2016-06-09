@@ -120,10 +120,25 @@ $(document).ready(function () {
                 for (var f = data.length - 1; f >= 0; f--) {
                     console.log("working on number: " + f);
                     var pastDays = calcDaysPast(data[f].latest);
-                    console.log("past days for:"+ f + " are: " + pastDays + " and deathtime is: " + data[f].deathTime);
-                    var prog = calcProgress(pastDays,data[f].deathTime)
+                   var groupish = 0; 
+                        for  (var a = data.length - 1; a >= 0; a--) {
+                            if (data[a].id == data[f].group) {
+                                console.log("f=" + f);
+                                console.log("a=" + a);
+                                console.log("the id of a is :" + data[a].id);
+                                console.log("the group of f is: " + data[f].group);
+                                console.log(data[a].id == data[f].group);
+                                groupish = a;
+                            }
+                       }
+                    console.log(groupish);
+                    console.log("past days for:"+ f + " are: " + pastDays + " group is: " + groupish);
+                    
+                    console.log(data[groupish].deathTime);
+                    var prog = calcProgress(pastDays,data[groupish].deathTime)
                     console.log("progress for:"+ f + " is: " + prog);
                     makeProgressLine('progress' + f,prog);
+                    
             }
                 
     }
@@ -143,8 +158,17 @@ $(document).ready(function () {
   //  for (i=1;i<6;i++) {
    // makeProgressLine('progress' + i,i*0.2); 
    // }
+   var trialvar = $('input[name=group]:checked', '#friendCreationForm').val();
+   
+   
+  $('#Friend-group').val(trialvar);
 
+$('#friendCreationForm input').on('change', function() {
+   alert($('input[name=deathTime]:checked', '#friendCreationForm').text()); 
+});
 
 });
+
+
 
 //window.onload = function shagadelic() {
