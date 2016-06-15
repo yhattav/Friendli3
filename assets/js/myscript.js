@@ -61,7 +61,7 @@ function makeProgressLine(id,percent) {
   to: {color: '#ED6A5A'},
   step: function (state, bar) {
       bar.path.setAttribute('stroke', state.color);
-      bar.setText(Math.round(bar.value() * 100) + ' %' );
+      bar.setText(Math.round(bar.value() * 100));
   }
     });
 
@@ -119,25 +119,25 @@ $(document).ready(function () {
             success:function(data) {
                 for (var f = data.length - 1; f >= 0; f--) {
                     if (data[f].typeFriend == 1) {
-                    console.log("working on number: " + f);
+                    //console.log("working on number: " + f);
                     var pastDays = calcDaysPast(data[f].latest);
                    var groupish = 0; 
                         for  (var a = data.length - 1; a >= 0; a--) {
                             if (data[a].id == data[f].group) {
-                                console.log("f=" + f);
-                                console.log("a=" + a);
-                                console.log("the id of a is :" + data[a].id);
-                                console.log("the group of f is: " + data[f].group);
-                                console.log(data[a].id == data[f].group);
+                                //console.log("f=" + f);
+                                //console.log("a=" + a);
+                                //console.log("the id of a is :" + data[a].id);
+                                //console.log("the group of f is: " + data[f].group);
+                                //console.log(data[a].id == data[f].group);
                                 groupish = a;
                             }
                        }
-                    console.log(groupish);
-                    console.log("past days for:"+ f + " are: " + pastDays + " group is: " + groupish);
+                    //console.log(groupish);
+                    //console.log("past days for:"+ f + " are: " + pastDays + " group is: " + groupish);
                     
-                    console.log(data[groupish].deathTime);
+                    //console.log(data[groupish].deathTime);
                     var prog = calcProgress(pastDays,data[groupish].deathTime)
-                    console.log("progress for:"+ f + " is: " + prog);
+                    //console.log("progress for:"+ f + " is: " + prog);
                     makeProgressLine('progress' + f,prog);
                     
             }
@@ -162,35 +162,47 @@ $(document).ready(function () {
    // }
    var trialvar = $('input[name=group]:checked', '#friendCreationForm').val();
    
-   
-
-
-});
-
-$('.groupSelect').click(function(){
+   $('.groupSelect').click(function(){
     $(this).toggleClass("btn-success").toggleClass("btn-info");
     var a = $(this).val();
     var classa = '.group' + a;
     $(classa).toggle("slow");
+    $(classa).prev("br").toggle();
+
+    });
+    $('#showAllGroups').click(function(){
+        
+    if ( $(this).val() == 1) {
+        $(this).removeClass("btn-success").addClass("btn-info");
+        $(".groupSelect").addClass("btn-info").removeClass("btn-success");
+        $('.oneFriendLine').hide("slow");
+        $('.oneFriendLine').siblings("br").hide();
+        $(this).val("0");
+    } 
+    else
+    {
+        $(this).removeClass("btn-info").addClass("btn-success");
+        $(".groupSelect").addClass("btn-success").removeClass("btn-info");
+        $('.oneFriendLine').show("slow");
+        $('.oneFriendLine').siblings("br").show();
+        $(this).val("1");  
+    }
+    
+        
+    });
+    var $divs = $("li.oneFriendLine");
+
+$('#alphBnt').on('click', function () {
+    var alphabeticallyOrderedDivs = $divs.sort(function (a, b) {
+        console.log(a + ",  " + b);
+        return $(b).find(".progressbar-text").text() - $(a).find(".progressbar-text").text();
+    });
+    $(".friendList").html(alphabeticallyOrderedDivs);
+});
 
 });
-$('#showAllGroups').click(function(){
-    
-   if ( $(this).val() == 1) {
-      $(this).removeClass("btn-success").addClass("btn-info");
-      $(".groupSelect").addClass("btn-info").removeClass("btn-success");
-      $('.oneFriendLine').hide("slow");
-      $(this).val("0");
-   } 
-   else
-   {
-      $(this).removeClass("btn-info").addClass("btn-success");
-      $(".groupSelect").addClass("btn-success").removeClass("btn-info");
-      $('.oneFriendLine').show("slow");
-      $(this).val("1");  
-   }
-   
-    
-})
+
+
+
 
 //window.onload = function shagadelic() {

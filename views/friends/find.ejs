@@ -40,6 +40,7 @@
             <div class="row ">
                 
                 <div class="btn-group" role="group" aria-label="...">
+                    <button id="alphBnt">Alphabetical</button>
                     <button id="showAllGroups" type="button" class="btn btn-success" value="1">Sellect all</button>
                     <% for (var i = data.length - 1; i >= 0; i--) { %>
                     <% if (data[i].typeGroup == 1) { %>
@@ -75,7 +76,7 @@
                                      <form id="deleteFriend" class="deleteFriend" action="/friends/destroy/<%= data[i].id %>">
                                         <button type="button" class="btn btn-danger btnToggle checkDelete">Delete</button>
 
-                                                <button type="submit" class="btn btn-danger external" > <i class="fa fa-trash-o "></i></button>
+                                                <button type="submit" class="btn btn-danger external"> <i class="fa fa-trash-o "></i></button>
 
                                         </form>
                                 </div>

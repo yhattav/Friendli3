@@ -50,10 +50,10 @@ var Data2;
       type: 'get',
       data: Data2,
       success: function () {
-        console.log('Data2');
+        //console.log('Data2');
       }
     });
-console.log('this ajax worked?');
+//console.log('this ajax worked?');
 //  }); 
   
   
