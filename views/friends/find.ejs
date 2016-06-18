@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3"> <!-- Section for the create a new friend part --><!-- -->
             </br>
             <div class="bg-white">
                 <button class="btn btn-info btnToggle btn-block"><i class="fa fa-arrow-down toggler">&nbsp;</i> Create a new Friend! <i class="fa fa-arrow-down toggler">&nbsp;</i></button>
@@ -15,7 +15,7 @@
                             <label for="Name-Input">What can you tell us about him?</label>
                             <textarea name="info" id="friend-info" class="form-control" rows="2" placeholder="e.g. His wife's name is Ellie, His Dog's name is Rex"></textarea>
                             <label for="Name-Input">group?</label>
-                           <!-- <input id="Friend-deathtime" name="deathTime" type="number" class="form-control" value="90"> -->
+                            <!-- this places each group in a radio for sellection. assignes the id of the group to the new created friend -->
                             <% for (var j = data.length - 1; j >= 0; j--) { %>
                             <% if (data[j].typeGroup == 1) { %>
                                 </br>          
@@ -35,12 +35,12 @@
                 </div>
               </div>
         </div>
-        <div class="col-md-6">
-            
+        <div class="col-md-6"><!--the friends part, starts with the differant groups -->
             <div class="row ">
-                
-                <div class="btn-group" role="group" aria-label="...">
-                    <button id="alphBnt">Alphabetical</button>
+                </br>
+                <div class="col-md-12 col-md-offset-0 ">
+                    <div class="btn-group" role="group" aria-label="...">
+                    
                     <button id="showAllGroups" type="button" class="btn btn-success" value="1">Sellect all</button>
                     <% for (var i = data.length - 1; i >= 0; i--) { %>
                     <% if (data[i].typeGroup == 1) { %>
@@ -48,9 +48,11 @@
 
                     <% } %>
                     <% } %>
-                </div>
-                
-                <div class="col-md-11 col-md-offset-0 ">
+                    &nbsp;
+                    <button id="alphBnt">Alphabetical</button>
+                    </div>
+                    </br>
+                    </br>
                     <ul class="friendList list-group bounceInUp">
                     <% for (var i = data.length - 1; i >= 0; i--) { %>
                     <% if (data[i].typeFriend == 1) { %>
@@ -171,5 +173,5 @@
 
               </div>   
         </div>
-    </div>
-</div>
+    </div><!-- rows -->
+</div><!--The first container Fluid -->

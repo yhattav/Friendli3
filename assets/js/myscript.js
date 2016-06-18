@@ -146,11 +146,7 @@ $(document).ready(function () {
     }
     });
 
-    $(".btnToggle").click(function(){
-       $(this).siblings(".external").toggle("slow");
-       $(this).children(".toggler").toggleClass("fa-arrow-down").toggleClass("fa-arrow-up");
-       
-    });
+
     $(".checkDelete").click(function() {
  //       toggle($(this).text('Delete????'));
   //  }, function() {
@@ -192,14 +188,26 @@ $(document).ready(function () {
     });
     var $divs = $("li.oneFriendLine");
 
-$('#alphBnt').on('click', function () {
-    var alphabeticallyOrderedDivs = $divs.sort(function (a, b) {
-        console.log(a + ",  " + b);
-        return $(b).find(".progressbar-text").text() - $(a).find(".progressbar-text").text();
+    $('#alphBnt').on('click', function () {
+        var alphabeticallyOrderedDivs = $divs.sort(function (a, b) {
+            console.log(a + ",  " + b);
+            return $(b).find(".progressbar-text").text() - $(a).find(".progressbar-text").text();
+        });
+        $(".friendList").html(alphabeticallyOrderedDivs);
+        $(".oneFriendLine").after("</br>");
+        $(".oneFriendLine").find(".btnToggle").click(function(){
+        
+       $(this).siblings(".external").toggle("slow");
+       $(this).children(".toggler").toggleClass("fa-arrow-down").toggleClass("fa-arrow-up");
+       
     });
-    $(".friendList").html(alphabeticallyOrderedDivs);
-});
 
+    });
+    $(".btnToggle").click(function(){
+       $(this).siblings(".external").toggle("slow");
+       $(this).children(".toggler").toggleClass("fa-arrow-down").toggleClass("fa-arrow-up");
+       
+    });
 });
 
 
