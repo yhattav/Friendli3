@@ -33,7 +33,7 @@
 
 //PROGRESS BAR CREATION FUNCTIONS (line and circle)
 
-function makeProgressLine(id,percent) {     
+function makeProgressLine(id,percent,daysleft) {     
  itemz = document.getElementById(id);
  var bar = new ProgressBar.Line(itemz, {
   strokeWidth: 1,
@@ -61,7 +61,7 @@ function makeProgressLine(id,percent) {
   to: {color: '#ED6A5A'},
   step: function (state, bar) {
       bar.path.setAttribute('stroke', state.color);
-      bar.setText(Math.round(bar.value() * 100));
+      bar.setText(daysleft);
   }
     });
 
@@ -125,7 +125,7 @@ $(document).ready(function () {
                     if (data[f].typeFriend == 1) {
                     //console.log("working on number: " + f);
                     var pastDays = calcDaysPast(data[f].latest);
-                   var groupish = 0; 
+                    var groupish = 0; 
                         for  (var a = data.length - 1; a >= 0; a--) {
                             if (data[a].id == data[f].group) {
                                 //console.log("f=" + f);
@@ -142,7 +142,17 @@ $(document).ready(function () {
                     //console.log(data[groupish].deathTime);
                     var prog = calcProgress(pastDays,data[groupish].deathTime)
                     //console.log("progress for:"+ f + " is: " + prog);
-                    makeProgressLine('progress' + f,prog);
+                     var days = days = data[groupish].deathTime-pastDays;
+                    //
+                     if (days <= 0) {
+                        days = days = '<i class="fa fa-frown-o toggler">&nbsp;</i>';
+                        //alert(classa);
+                    }
+                    
+                    makeProgressLine('progress' + f,prog,days);
+                    
+                    
+                   
                     
             }
                 }
