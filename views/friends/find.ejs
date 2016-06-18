@@ -49,7 +49,9 @@
                     <% } %>
                     <% } %>
                     &nbsp;
-                    <button id="alphBnt">Alphabetical</button>
+                    <button id="byAlphBet" class="btn">By Name</button>
+                    <button id="byProgress" class="btn">By Progress</button>
+                    <button id="byUrgency" class="btn">By Urgency</button>
                     </div>
                     </br>
                     </br>
@@ -62,15 +64,13 @@
                            
                             <div class="media btnToggle">
                                 <div class="media-left">
-                                    <h4 class="media-heading"><%= data[i].name %></h4>
+                                    <h4 class="media-heading friendName"><%= data[i].name %></h4>
                                 </div>
                                 <div class="media-body">
-                                                            <!-- the progress bars -->   
-                                    <div style=" padding-right: 30px;">                         
-                                        <div class="OuterSingleBar">
-                                            <div class="progress btnToggle" id='progress<%= i%>'></div>
-                                        </div>
-                                    </div>
+                                                            <!-- the progress bars -->         
+                                    <div class="OuterSingleBar">
+                                        <div class="aProgressBar " id='progress<%= i%>'></div>
+                                    </div>      
                                 </div>
                             </div>
                             <div class="external">

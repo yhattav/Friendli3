@@ -36,26 +36,26 @@
 function makeProgressLine(id,percent) {     
  itemz = document.getElementById(id);
  var bar = new ProgressBar.Line(itemz, {
-  strokeWidth: 4,
+  strokeWidth: 1,
   easing: 'easeInOut',
   duration: 1400,
   color: '#FFEA82',
-  trailColor: '#eee',
-  trailWidth: 1,
+  trailColor: '#999',
+  trailWidth: 0.5,
   svgStyle: {width: '100%', height: '100%'},
   text: {
     style: {
       // Text color.
       // Default: same as stroke color (options.color)
-      color: '#999',
+      color: '#00FFAA',
       position: 'absolute',
-      right: '0',
-      top: '30px',
+      right: '0px',
+      top: '0px',
       padding: 0,
       margin: 0,
       transform: null
     },
-    autoStyleContainer: false
+    autoStyleContainer: true
   },
   from: {color: '#00ff00'},
   to: {color: '#ED6A5A'},
@@ -111,6 +111,10 @@ function makeProgressCircle(id,percent) {
 $(document).ready(function () { 
     
     $(".external").hide();
+    $(".btnToggle").click(function(){
+        $(this).siblings(".external").toggle("slow");
+        $(this).children(".toggler").toggleClass("fa-arrow-down").toggleClass("fa-arrow-up");
+    });
     
     $.ajax({
             url:"/friends",
@@ -164,49 +168,101 @@ $(document).ready(function () {
     var classa = '.group' + a;
     $(classa).toggle("slow");
     $(classa).prev("br").toggle();
+    $(classa).find(".external").hide();
 
     });
     $('#showAllGroups').click(function(){
         
-    if ( $(this).val() == 1) {
-        $(this).removeClass("btn-success").addClass("btn-info");
-        $(".groupSelect").addClass("btn-info").removeClass("btn-success");
-        $('.oneFriendLine').hide("slow");
-        $('.oneFriendLine').siblings("br").hide();
-        $(this).val("0");
-    } 
-    else
-    {
-        $(this).removeClass("btn-info").addClass("btn-success");
-        $(".groupSelect").addClass("btn-success").removeClass("btn-info");
-        $('.oneFriendLine').show("slow");
-        $('.oneFriendLine').siblings("br").show();
-        $(this).val("1");  
-    }
-    
+        if ( $(this).val() == 1) {
+            $(this).removeClass("btn-success").addClass("btn-info");
+            $(".groupSelect").addClass("btn-info").removeClass("btn-success");
+            $('.oneFriendLine').hide("slow");
+            $('.oneFriendLine').siblings("br").hide();
+            $(".friendList").find(".external").hide();
+            $(this).val("0");
+        } 
+        else
+        {
+            $(this).removeClass("btn-info").addClass("btn-success");
+            $(".groupSelect").addClass("btn-success").removeClass("btn-info");
+            $('.oneFriendLine').show("slow");
+            $('.oneFriendLine').siblings("br").show();
+            $(this).val("1");  
+        }
         
-    });
+            
+        });
     var $divs = $("li.oneFriendLine");
 
-    $('#alphBnt').on('click', function () {
+    $('#byAlphBet').on('click', function () {
+        var alphabeticallyOrderedDivs = $divs.sort(function (a, b) {
+            return $(a).find("h4").text() > $(b).find("h4").text();
+        });
+        $(".friendList").html(alphabeticallyOrderedDivs);
+        $(".oneFriendLine").after("</br>");
+        $(".oneFriendLine").find(".btnToggle").click(function(){  
+            $(this).siblings(".external").toggle("slow");
+            $(this).children(".toggler").toggleClass("fa-arrow-down").toggleClass("fa-arrow-up");
+        });
+        $('.updateFriend').submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+            url: $(this).attr('action'),
+            //url: '/friends/update',
+            type: 'put',
+            data: $(this).serialize(),
+            success: function () {
+                document.location.reload();
+            }
+            });
+        });
+    });
+    $('#byProgress').on('click', function () {
+        var alphabeticallyOrderedDivs = $divs.sort(function (a, b) {
+            return $(b).find(".progressbar-text").text() - $(a).find(".progressbar-text").text();
+        });
+        $(".friendList").html(alphabeticallyOrderedDivs);
+        $(".oneFriendLine").after("</br>");
+        $(".oneFriendLine").find(".btnToggle").click(function(){  
+            $(this).siblings(".external").toggle("slow");
+            $(this).children(".toggler").toggleClass("fa-arrow-down").toggleClass("fa-arrow-up");
+        });
+        $('.updateFriend').submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+            url: $(this).attr('action'),
+            //url: '/friends/update',
+            type: 'put',
+            data: $(this).serialize(),
+            success: function () {
+                document.location.reload();
+            }
+            });
+        });
+    });
+    $('#byUrgency').on('click', function () {
         var alphabeticallyOrderedDivs = $divs.sort(function (a, b) {
             console.log(a + ",  " + b);
             return $(b).find(".progressbar-text").text() - $(a).find(".progressbar-text").text();
         });
         $(".friendList").html(alphabeticallyOrderedDivs);
         $(".oneFriendLine").after("</br>");
-        $(".oneFriendLine").find(".btnToggle").click(function(){
-        
-       $(this).siblings(".external").toggle("slow");
-       $(this).children(".toggler").toggleClass("fa-arrow-down").toggleClass("fa-arrow-up");
-       
-    });
-
-    });
-    $(".btnToggle").click(function(){
-       $(this).siblings(".external").toggle("slow");
-       $(this).children(".toggler").toggleClass("fa-arrow-down").toggleClass("fa-arrow-up");
-       
+        $(".oneFriendLine").find(".btnToggle").click(function(){  
+            $(this).siblings(".external").toggle("slow");
+            $(this).children(".toggler").toggleClass("fa-arrow-down").toggleClass("fa-arrow-up");
+        });
+        $('.updateFriend').submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+            url: $(this).attr('action'),
+            //url: '/friends/update',
+            type: 'put',
+            data: $(this).serialize(),
+            success: function () {
+                document.location.reload();
+            }
+            });
+        });
     });
 });
 
