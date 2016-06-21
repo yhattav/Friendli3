@@ -49,9 +49,12 @@
                     <% } %>
                     <% } %>
                     &nbsp;
-                    <button id="byAlphBet" class="btn">By Name</button>
-                    <button id="byProgress" class="btn">By Progress</button>
-                    <button id="byUrgency" class="btn">By Urgency</button>
+                    
+                    </div>
+                     <div class="btn-group" role="group" aria-label="...">
+                        <button id="byAlphBet" class="btn btn-info">By Name</button>
+                        <button id="byProgress" class="btn btn-info">By Progress</button>
+                        <button id="byUrgency" class="btn btn-info">By Urgency</button>
                     </div>
                     </br>
                     </br>
@@ -96,14 +99,14 @@
                                             <input id="Update-latest" name="latest" type="date" class="form-control" value="<%=data[i].latest %>">
                                             <label for="UpdatedAT">Last updated at:</label></br>
                                             <a href="/friends/<%= data[i].id %>"><i class="fa fa-clock-o ">&nbsp;</i><%= new Date(data[i].updatedAt).toLocaleString() %></a></br>
-                                            <p>
+                                            <p> In group:&nbsp;
                                                 <%for (var g = data.length - 1; g >= 0; g--) { %>
                                                 <% if (data[g].id == data[i].group) { %>
                                                 <%=data[g].name%>
                                                 <% } %>
                                               <% } %>
                                             </p>
-                                            
+                                            <label id="progPercent<%= i%>" class="progPercent">1</label>%
                                             
                                             
                                         

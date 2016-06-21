@@ -148,7 +148,9 @@ $(document).ready(function () {
                         days = days = '<i class="fa fa-frown-o toggler">&nbsp;</i>';
                         //alert(classa);
                     }
+                    var percentID = '#progPercent' + f;
                     
+                    $(percentID).html(prog*100);
                     makeProgressLine('progress' + f,prog,days);
                     
                     
@@ -162,15 +164,10 @@ $(document).ready(function () {
 
 
     $(".checkDelete").click(function() {
- //       toggle($(this).text('Delete????'));
-  //  }, function() {
         $(this).html($(this).text() == 'Delete' ? 'Are you sure?  Click again to cancel' : 'Delete').toggleClass("btn-danger").toggleClass("btn-success");
     });
-    //makeProgressCircle('container',perc);
-  //  for (i=1;i<6;i++) {
-   // makeProgressLine('progress' + i,i*0.2); 
-   // }
-   var trialvar = $('input[name=group]:checked', '#friendCreationForm').val();
+
+   //var trialvar = $('input[name=group]:checked', '#friendCreationForm').val();
    
    $('.groupSelect').click(function(){
     $(this).toggleClass("btn-success").toggleClass("btn-info");
@@ -226,10 +223,16 @@ $(document).ready(function () {
             }
             });
         });
+        $(".checkDelete").click(function() {
+            $(this).html($(this).text() == 'Delete' ? 'Are you sure?  Click again to cancel' : 'Delete').toggleClass("btn-danger").toggleClass("btn-success");
+        });
+        $('#byAlphBet').addClass("btn-success").removeClass("btn-info");
+        $('#byProgress').removeClass("btn-success").addClass("btn-info");
+        $('#byUrgency').removeClass("btn-success").addClass("btn-info");
     });
     $('#byProgress').on('click', function () {
         var alphabeticallyOrderedDivs = $divs.sort(function (a, b) {
-            return $(b).find(".progressbar-text").text() - $(a).find(".progressbar-text").text();
+            return $(b).find(".progPercent").text() - $(a).find(".progPercent").text();
         });
         $(".friendList").html(alphabeticallyOrderedDivs);
         $(".oneFriendLine").after("</br>");
@@ -249,11 +252,17 @@ $(document).ready(function () {
             }
             });
         });
+        $(".checkDelete").click(function() {
+            $(this).html($(this).text() == 'Delete' ? 'Are you sure?  Click again to cancel' : 'Delete').toggleClass("btn-danger").toggleClass("btn-success");
+        });
+        $('#byProgress').addClass("btn-success").removeClass("btn-info");
+        $('#byAlphBet').removeClass("btn-success").addClass("btn-info");
+        $('#byUrgency').removeClass("btn-success").addClass("btn-info");
     });
     $('#byUrgency').on('click', function () {
         var alphabeticallyOrderedDivs = $divs.sort(function (a, b) {
             console.log(a + ",  " + b);
-            return $(b).find(".progressbar-text").text() - $(a).find(".progressbar-text").text();
+            return $(a).find(".progressbar-text").text() - $(b).find(".progressbar-text").text();
         });
         $(".friendList").html(alphabeticallyOrderedDivs);
         $(".oneFriendLine").after("</br>");
@@ -273,6 +282,12 @@ $(document).ready(function () {
             }
             });
         });
+        $(".checkDelete").click(function() {
+            $(this).html($(this).text() == 'Delete' ? 'Are you sure?  Click again to cancel' : 'Delete').toggleClass("btn-danger").toggleClass("btn-success");
+        });
+        $('#byUrgency').addClass("btn-success").removeClass("btn-info");
+        $('#byProgress').removeClass("btn-success").addClass("btn-info");
+        $('#byAlphBet').removeClass("btn-success").addClass("btn-info");
     });
 });
 
