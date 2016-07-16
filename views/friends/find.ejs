@@ -51,6 +51,8 @@
                     &nbsp;
                     
                     </div>
+                    </br>
+                    </br>
                      <div class="btn-group" role="group" aria-label="...">
                         <button id="byAlphBet" class="btn btn-info">By Name</button>
                         <button id="byProgress" class="btn btn-info">By Progress</button>
@@ -65,11 +67,11 @@
                     <div class="media">
                         <div class="media-body">
                            
-                            <div class="media btnToggle">
-                                <div class="media-left">
+                            <div class="row btnToggle">
+                                <div class="col-md-2">
                                     <h4 class="media-heading friendName"><%= data[i].name %></h4>
                                 </div>
-                                <div class="media-body">
+                                <div class="col-md-10">
                                                             <!-- the progress bars -->         
                                     <div class="OuterSingleBar">
                                         <div class="aProgressBar " id='progress<%= i%>'></div>
@@ -141,8 +143,8 @@
                         <div class="form-group">
                             <input id="Group-type" name="typeGroup" type="hidden" class="form-control" value="1">
                             <label for="Name-Input">Use this Box to create a new Group</label>
-                            <textarea name="name" id="group-name" class="form-control" rows="1" required placeholder="Enter your friend's name"></textarea>
-                            <label for="Name-Input">How many days untill you must call?</label>
+                            <textarea name="name" id="group-name" class="form-control" rows="1" required placeholder="Enter the group name"></textarea>
+                            <label for="Name-Input">Time(days) untill you must call a member in this group</label>
                             <input id="Group-deathtime" name="deathTime" type="number" class="form-control" value="90">
                             <div class="form-group">
                                 <div class="">

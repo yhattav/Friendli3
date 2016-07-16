@@ -150,7 +150,7 @@ $(document).ready(function () {
                     }
                     var percentID = '#progPercent' + f;
                     
-                    $(percentID).html(prog*100);
+                    $(percentID).html(Math.round(prog*100));
                     makeProgressLine('progress' + f,prog,days);
                     
                     
