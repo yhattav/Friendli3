@@ -53,17 +53,17 @@
                     </div>
                     </br>
                     </br>
-                     <div class="btn-group" role="group" aria-label="...">
+                     <div class="btn-group" role="group" aria-label="..."><!--buttons to change the order -->
                         <button id="byAlphBet" class="btn btn-info">By Name</button>
                         <button id="byProgress" class="btn btn-info">By Progress</button>
                         <button id="byUrgency" class="btn btn-info">By Urgency</button>
                     </div>
                     </br>
                     </br>
-                    <ul class="friendList list-group bounceInUp">
+                    <ul class="friendList list-group bounceInUp"><!--the list of friends that is on display -->
                     <% for (var i = data.length - 1; i >= 0; i--) { %>
                     <% if (data[i].typeFriend == 1) { %>
-                    <li class="oneFriendLine list-group-item animated bounceInUp bg-white group<%=data[i].group%>">
+                    <li class="oneFriendLine list-group-item animated slideInUp bg-white group<%=data[i].group%>"> <!--a single friend on the list -->
                     <div class="media">
                         <div class="media-body">
                            
