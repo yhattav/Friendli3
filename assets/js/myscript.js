@@ -292,6 +292,20 @@ $(document).ready(function () {
 });
 
 
+// A function to place Todays date inside the update bar (for easier use of the update friend form)
+$('.changeToday').click(function(){             
+    var now = new Date();
+   //console.log(now);
+    var today = now.getFullYear()  + '-' + ('0' + (now.getMonth()+1)).slice(-2)  + '-' + ('0' + now.getDate()).slice(-2);
+    //console.log(today);
+
+    var dateID = '#Update-latest' + $(this).data('internalid');
+    $(dateID).val(today);
+
+    //console.log($(this).data('internalid'));
+});
+
+//(now.getMonth()+1)).slice(-2)
 
 
 //window.onload = function shagadelic() {

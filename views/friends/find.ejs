@@ -98,7 +98,30 @@
                                     <div class="col-lg-4">    
                                         
                                             <label for="latest-Update">Update the date you last called:</label>
-                                            <input id="Update-latest" name="latest" type="date" class="form-control" value="<%=data[i].latest %>">
+
+                                          
+
+
+
+
+
+
+                                                <div class="input-group">
+                                                <input id='Update-latest<%= i%>' name="latest" type="date" class="form-control" value="<%=data[i].latest %>">
+                                                <span class="input-group-btn" >
+                                                    <button id='changeToday<%= i%>' class="btn btn-default changeToday" data-internalid='<%= i%>' type="button">Today!</button>
+                                                </span>
+                                                </div><!-- /input-group -->
+                                           
+
+
+
+
+                                            
+
+
+
+
                                             <label for="UpdatedAT">Last updated at:</label></br>
                                             <a href="/friends/<%= data[i].id %>"><i class="fa fa-clock-o ">&nbsp;</i><%= new Date(data[i].updatedAt).toLocaleString() %></a></br>
                                             <p> In group:&nbsp;
